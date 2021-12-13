@@ -146,9 +146,7 @@ pyOpenSSL==21.0.0
 pyparsing==2.4.7
 pyrsistent==0.18.0
 python-dateutil==1.5
-python-magic==0.4.24
-python-magic-bin==0.4.14
-pytorch2keras==0.2.4
+
 pytz==2021.3
 pytz-deprecation-shim==0.1.0.post0
 PyWavelets==1.2.0
@@ -176,13 +174,6 @@ sortedcontainers==2.4.0
 SQLAlchemy==1.4.26
 tabulate==0.8.9
 tbb==2021.4.0
-tensorboard==1.13.1
-tensorboard-data-server==0.6.1
-tensorboard-plugin-wit==1.8.0
-tensorflow==1.13.2
-tensorflow-addons==0.15.0
-tensorflow-estimator==1.13.0
-tensorflow-io-gcs-filesystem==0.21.0
 termcolor==1.1.0
 terminado==0.12.1
 testpath==0.5.0
