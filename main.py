@@ -1,5 +1,5 @@
 import os
-from app import app
+# from app import app
 import urllib.request
 from flask import Flask, flash, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
@@ -41,30 +41,40 @@ pd.options.mode.chained_assignment = None
 from bokeh.embed import autoload_static
 from bokeh.resources import CDN
 
+from flask import Flask
+
+UPLOAD_FOLDER = 'static/uploads/'
+
+app = Flask(__name__)
+app.secret_key = "secret key"
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024 * 1024
 
 
 
+# @app.route('/')
+# def upload_form():
+# 	return render_template('index.html')
 
-@app.route('/')
-def upload_form():
-	return render_template('index.html')
-
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['GET','POST'])
 def upload_video():
+	if request.method == 'GET':
+		return render_template('index.html')
+	else:
 	# if 'file' not in request.files:
 	# 	flash('No file part')
 	# 	return redirect(request.url)
-	file = request.files['file']
-	# if file.filename == '':
-	# 	flash('No image selected for uploading')
-	# 	return redirect(request.url)
-	# else:
-	# filename = secure_filename(file.filename)
-	filename = "uploaded_file.mp4"
-	file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-	#print('upload_video filename: ' + filename)
-	flash('Video successfully uploaded and displayed below')
-	return render_template('index.html', filename=filename)
+		file = request.files['file']
+		# if file.filename == '':
+		# 	flash('No image selected for uploading')
+		# 	return redirect(request.url)
+		# else:
+		# filename = secure_filename(file.filename)
+		filename = "uploaded_file.mp4"
+		file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+		#print('upload_video filename: ' + filename)
+		flash('Video successfully uploaded and displayed below')
+		return render_template('index.html', filename=filename)
 
 @app.route('/display/<filename>')
 def display_video(filename):
