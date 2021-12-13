@@ -145,7 +145,6 @@ pymongo==3.12.1
 pyOpenSSL==21.0.0
 pyparsing==2.4.7
 pyrsistent==0.18.0
-python-dateutil==1.5
 
 pytz==2021.3
 pytz-deprecation-shim==0.1.0.post0
