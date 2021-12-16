@@ -8,7 +8,7 @@ import pandas as pd
 
 from mylib.centroidtracker import CentroidTracker
 from mylib.trackableobject import TrackableObject
-from imutils.video import VideoStream
+# from imutils.video import VideoStream
 from imutils.video import FPS
 from mylib.mailer import Mailer
 from mylib import config, thread
